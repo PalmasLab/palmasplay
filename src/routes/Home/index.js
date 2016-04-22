@@ -1,5 +1,5 @@
-import HomeView from './components/HomeView'
+import {STE} from '../../components/YouTube'
 
 export default {
-  component: HomeView
+  component: STE
 }

@@ -1,7 +1,6 @@
 {
   "parser"  : "babel-eslint",
   "extends" : [
-    "standard",
     "standard-react"
   ],
   "plugins" : [
@@ -22,6 +21,7 @@
     "semi" : [2, "never"],
     "max-len": [2, 120, 2],
     "flow-vars/define-flow-type": 1,
-    "flow-vars/use-flow-type": 1
+    "flow-vars/use-flow-type": 1,
+    "no-labels": 2
   }
 }
