@@ -3,14 +3,14 @@ import Sidebar from 'react-sidebar'
 import ResizeableComponent from 'components/ResizeableComponent'
 
 import styles from './styles.css'
-import Logo from './logo.png'
+import LogoImg from './logo.png'
 import SmallLogo from './logo-small.png'
 
 export class Header extends ResizeableComponent {
     render() {
         let {toggleSidebar} = this.props
         let {small} = this.state
-        let headerSize = small?'small':'big'
+        let headerSize = small?'small':null
 
         return (
             <div className={`${styles.header} ${styles[headerSize]}`}>
@@ -18,7 +18,7 @@ export class Header extends ResizeableComponent {
                     <i className="fa fa-3x fa-bars"></i>
                 </a>
                 <span className={styles.logo}>
-                    <img src={Logo} />
+                    <img src={LogoImg} />
                 </span>
                 <div className={styles.flex}>
                     <input type="search" placeholder="Search"/>
