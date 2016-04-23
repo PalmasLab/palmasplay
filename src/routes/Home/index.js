@@ -1,5 +1,5 @@
-import {STE} from '../../components/YouTube'
+import {MainView} from '../../components/YouTube'
 
 export default {
-  component: STE
+  component: MainView
 }

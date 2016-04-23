@@ -185,7 +185,12 @@ class Playlist extends React.Component {
     }
 }
 
-export class STE extends React.Component {
+export class MainView extends React.Component {
+    componentDidMount() {
+        console.log ('this', this.props, this.state)
+        this.props.fetchVideos()
+    }
+
     render() {
         return (
             <div className={styles.sve}>
