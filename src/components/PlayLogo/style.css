@@ -1,0 +1,28 @@
+.playLogo {
+    width: 27px;
+    height: 27px;
+    background: #067D5E;
+    border-radius: 100%;
+    margin: auto;
+}
+
+.playLogo:after {
+    position: absolute;
+    margin-left: -27px;
+    margin-top: -10px;
+    content: "";
+    width: 47px;
+    height: 47px;
+    border: 5px solid;
+    border-radius: 100%;
+    border-color: #42B653 #067D5E transparent;
+    transform: rotate(-45deg);
+}
+.playLogo:before {
+    position: relative;
+    left: 8px;
+    top: -15px;
+    content: "▸";
+    color: #fff;
+    font-size: 35px;
+}
