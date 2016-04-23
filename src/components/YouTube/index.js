@@ -1,48 +1,71 @@
 import React from 'react'
 import Sidebar from 'react-sidebar'
+import ResizeableComponent from 'components/ResizeableComponent'
 
 import styles from './styles.css'
 import Logo from './logo.png'
+import SmallLogo from './logo-small.png'
 
-export const Header = ({toggleSidebar}) => (
-    <div className={styles.header}>
-        <a href="#" onClick={toggleSidebar} className={styles.menuBars}>
-            <i className="fa fa-3x fa-bars"></i>
-        </a>
-	<span className={styles.logo}>
-            <img src={Logo}/>
-	</span>
-	<input type="search" placeholder="Search"/>
-	<div className={styles.menu}>
-            <ul>	
-                <li><i className="fa fa-envelope-o messages"></i></li>
-                <li><i className="fa fa-bell-o notifications"></i></li>
-                <li><i className="fa fa-caret-down down"></i></li>
-            </ul>
-            <img src="http://i.imgur.com/GjLlmP6.jpg" />
-        </div>
-	<input type="button" value="Upload" />
-    </div>
+export class Header extends ResizeableComponent {
+    render() {
+        let {toggleSidebar} = this.props
+        let {small} = this.state
+        let headerSize = small?'small':'big'
+
+        return (
+            <div className={`${styles.header} ${styles[headerSize]}`}>
+                <a href="#" onClick={toggleSidebar} className={styles.menuBars}>
+                    <i className="fa fa-3x fa-bars"></i>
+                </a>
+                <span className={styles.logo}>
+                    <img src={Logo} />
+                </span>
+                <div className={styles.flex}>
+                    <input type="search" placeholder="Search"/>
+                    <input type="button" value="Upload" />
+                    <div className={styles.menu}>
+                        <ul>
+                            <li><i className="fa fa-envelope-o messages"></i></li>
+                            <li><i className="fa fa-bell-o notifications"></i></li>
+                            <li><i className="fa fa-caret-down down"></i></li>
+                        </ul>
+                        <img src="http://i.imgur.com/GjLlmP6.jpg" />
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
+
+const MenuSection = ({title, icon, children}) => (
+    <ul>
+        <li className={styles.title}><strong>{title}</strong><i className={`fa fa-${icon}`}></i></li>
+        {children}
+    </ul>
 )
 
 export class SideMenu extends React.Component {
     render () {
         return (
             <div className={styles.sideMenu}>
-                <ul>
-                    <li className={styles.title}><strong>Menu</strong></li>
+                <MenuSection title="Menu">
                     <a href="#"><li><i className="fa fa-youtube-play"></i>What to watch</li></a>
                     <a href="#"><li><i className="fa fa-user"></i>My Channel</li></a>
                     <a href="#"><li><i className="fa fa-clock-o"></i>History</li></a>
                     <a href="#"><li><i className="fa fa-play-circle-o"></i>Watch later</li></a>
-                </ul>
-                <ul>
-                    <li className={styles.title}><strong>Playlists</strong><a href="#"><i className="fa fa-cog"></i></a></li>
+                </MenuSection>
+                <MenuSection title="Playlists" icon="cog">
                     <a href="#"><li><i className="fa fa-heart-o"></i>Liked Videos</li></a>
                     <a href="#"><li><i className="fa fa-indent"></i>My Music</li></a>
                     <a href="#"><li><i className="fa fa-indent"></i>Eminem</li></a>
                     <a href="#"><li><i className="fa fa-indent"></i>David Guetta</li></a>
-                </ul>
+                </MenuSection>
+                <MenuSection title="Playlists2" icon="heart">
+                    <a href="#"><li><i className="fa fa-heart-o"></i>Liked Videos</li></a>
+                    <a href="#"><li><i className="fa fa-indent"></i>My Music</li></a>
+                    <a href="#"><li><i className="fa fa-indent"></i>Eminem</li></a>
+                    <a href="#"><li><i className="fa fa-indent"></i>David Guetta</li></a>
+                </MenuSection>
             </div>
         )
     }

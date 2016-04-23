@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+@import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700');
 *
 {
 	margin: 0;
@@ -11,52 +11,95 @@ body
 }
 .header
 {
-	background: #fff;
-	height: 85px;
-	width: 100%;
-	border-bottom: 1px solid #EBECEB;
-	position: fixed;
-	z-index: 100;
+    display: flex;
+    background: #fff;
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid #EBECEB;
+    position: fixed;
+    z-index: 100;
+    padding: 10px;
 }
+
+.header .flex {
+    flex: 1;
+    display: inline-flex;
+    max-width: 100%;
+    height: 100%;
+    transition: all 0.4s;
+}
+
+.header .menuBars {
+    margin: auto 10px;
+    transform: translate3d(-80px, 0px, 0px);
+}
+
+.header.small .menuBars {
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.header .logo {
+    margin: 0 5px;
+    padding-right: 1.5em;
+
+    max-width: calc(100% - 55px);
+    height: 100%;
+    border-right: 1px solid #EBECEB;
+
+    transition: clip-path 0.2s, all 0.4s;
+    clip-path: circle(275px at 280px 50px);
+    transform: translate3d(-55px, -3px, 0px);
+}
+
 .header .logo img
 {
-	height: 35px;
-	margin-left: 60px;
-	margin-top: 25px;
-	padding-right: 50px;
-	border-right: 1px solid #EBECEB;
+    height: 80px;
+    //	margin-left: 60px;
 }
+.header.small .logo {
+    max-width: 60px;
+    clip-path: circle(28px at 280px 50px);
+    transform: translate3d( -250px, -30px, 0px);
+    transition: clip-path 0.2s, all 0.4s;
+}
+
+
+
 .header input[type=search]
 {
-	border: none;
-	outline: none;
-	width: 40%;
-	height: 40px;
-	font-size: 18px;
-	font-family: Lato;
-	font-weight: 300;
-	position: absolute;
-  	margin-top: 25px;
-  	margin-left: 30px;
-  	border-bottom: 1px solid #EBECEB;
+    flex: 1;
+    border: none;
+    outline: none;
+    height: 40px;
+    font-size: 18px;
+    font-family: Lato;
+    font-weight: 300;
+    width: 100%;
+    margin: 0 0.5em 0 0;
+    padding: 0 1.5em;
+    border-bottom: 1px solid #EBECEB;
+    transition: all 0.4s;
 }
+.header.small input[type=search]
+{
+    border-bottom: 1px solid #EBECEB;
+}
+
 input[type=button]
 {
-
-	background: #42B653;
-	border: none;
-	outline: none;
-	border-radius: 3px;
-	text-transform: uppercase;
-	color: white;
-	font-weight: 600;
-	font-size: 11px;
-	font-family: Lato;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	padding-right: 20px;
-	padding-left: 20px;
-	border-bottom: 2px solid #298266;
+    background: #42B653;
+    height: 35px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 600;
+    font-size: 11px;
+    font-family: Lato;
+    padding: 10px 20px;
+    margin: auto 3em;
+    border-bottom: 2px solid #298266;
 }
 input[type=button]:hover
 {
@@ -66,79 +109,70 @@ input[type=button]:active
 {
 	background: #298266;
 }
-.header input[type=button]
-{
-	float: right;
-	margin-right: 100px;
-	margin-top: 28px;
+
+.header .menu {
+    display: flex;
+    height: 100%;
+    background: #fff;
+    border-left: 1px solid #EBECEB;
+    padding: 0px 1em;
+    margin: auto 0px;
 }
 
-.header .menuBars {
-    margin: 10px;
+.header .menu ul {
+    margin: auto;
 }
-.menu
+
+.header .menu li
 {
-	width: 270px;
-	height: 100%;
-	background: #fff;
-	float: right;
-	border-left: 1px solid #EBECEB;
+    display: inline-block;
+    font-size: 20px;
+    color: #879099;
+    margin: auto 10px;
 }
-.menu li
+.header .menu .messages:after
 {
-	display: inline-block;
-	font-size: 20px;
-	color: #879099;
-	margin-top: 35px;
-	margin-left: 35px;
+    content: '6';
+    background: #42B653;
+    color: white;
+    font-size: 10px;
+    padding: 4px;
+    padding-right: 6px;
+    padding-left: 6px;
+    position: absolute;
+    top: -12px;
+    border: 2px solid white;
+    border-radius: 100%;
+    right: -11px;
+    font-family: Lato;
+    font-weight: normal;
 }
-.menu .messages:after
+.header .menu .notifications:after
 {
-	content: '6';
-	background: #42B653;
-	color: white;
-	font-size: 10px;
-	padding: 4px;
-	padding-right: 6px;
-	padding-left: 6px;
-	position: absolute;
-	top: -12px;
+    content: '9';
+    background: #42B653;
+    color: white;
+    font-size: 10px;
+    padding: 4px;
+    padding-right: 6px;
+    padding-left: 6px;
+    position: absolute;
+    top: -12px;
 	border: 2px solid white;
 	border-radius: 100%;
 	right: -11px;
 	font-family: Lato;
 	font-weight: normal;
 }
-.menu .notifications:after
+.header .menu img
 {
-	content: '9';
-	background: #42B653;
-	color: white;
-	font-size: 10px;
-	padding: 4px;
-	padding-right: 6px;
-	padding-left: 6px;
-	position: absolute;
-	top: -12px;
-	border: 2px solid white;
-	border-radius: 100%;
-	right: -11px;
-	font-family: Lato;
-	font-weight: normal;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+
+    margin: auto;
 }
-.menu img
-{
-	height: 50px;
-	width: 50px;
-	border-radius: 100%;
-	position: absolute;
-	top: 18px;
-	right: 50px;
-}
-.down
-{
-	margin-left: 75px;
-}
+
 .sve
 {
 	height: 220%;
@@ -157,45 +191,48 @@ input[type=button]:active
     z-index: 99;
     left: 0;
 }
-    .sideMenu li
+.sideMenu li
 {
+    width: 217px;
+    display: flex;
     color: #A09F9D;
-	list-style: none;
-	font-family: Lato;
-	font-weight: bold;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 5px;
-	padding-right: 10px;
-	transition: .1s all ease;
+    list-style: none;
+    font-family: Lato;
+    font-weight: bold;
+    padding: 10px 20px;
+
+    transition: .1s all ease;
 }
+
 .sideMenu ul
 {
-	margin-top: 120px;
-	margin-left: 40px;
+    margin: 10px auto;
 }
-.sideMenu ul:nth-child(2)
+
+.sideMenu ul:first-child
 {
-	margin-top: 40px;
-	margin-left: 40px;
+    margin: 70px auto 0px;
 }
+
 .title i
 {
-	margin-left: 57px;
-	color:  #A09F9D;
+    position: absolute;
+    margin: 2px auto 0;
+    right: -5px;
+    color:  #A09F9D;
 }
 a
 {
-	text-decoration: none;
-	color: #A09F9D;
+    text-decoration: none;
+    color: #A09F9D;
 }
 .title
 {
-	font-size: 14px;
-	color: #42B653;
-	text-transform: uppercase;
-	font-weight: bold;
-	font-family: Arial;
+    font-size: 14px;
+    color: #42B653;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: Arial;
 }
 .title:hover
 {
@@ -478,7 +515,7 @@ a
 .vel
 {
 	height: 400px;
-	width: 70%;
+	width: calc(100% - 320px);
 	background: url("http://www.lostivalepensante.it/wp-content/uploads/ay102894607epa03566911-live.jpg")no-repeat;
 	background-size: 100%;
 	margin: 25px;
