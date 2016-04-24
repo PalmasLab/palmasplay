@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidebar from 'react-sidebar'
-import {Header, SideMenu} from '../../components/YouTube'
+import {SideMenu} from 'components/YouTube'
+import Header from 'components/Header'
 import ResizeableComponent from 'components/ResizeableComponent'
 import classes from './CoreLayout.scss'
 import '../../styles/core.scss'
