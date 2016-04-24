@@ -153,6 +153,16 @@ class Playlist extends React.Component {
     }
 }
 
+const Cover = () => (
+    <div className={styles.cover}>
+        <div className={styles.info}>
+            <img src="http://i.imgur.com/GjLlmP6.jpg" />
+            <div className={styles.nick}>Dino</div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget nunc urna. Integer sed massa et est consequat lacinia sit amet nec eros. Phasellus massa magna, varius vitae pellentesque et, maximus eu nisl.</p>
+        </div>
+    </div>
+)
+
 export class MainView extends React.Component {
     componentDidMount() {
         console.log ('this', this.props, this.state)
@@ -162,13 +172,6 @@ export class MainView extends React.Component {
     render() {
         return (
             <div className={styles.sve}>
-                <div className={styles.cover}>
-                    <div className={styles.info}>
-                        <img src="http://i.imgur.com/GjLlmP6.jpg" />
-                        <div className={styles.nick}>Dino</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget nunc urna. Integer sed massa et est consequat lacinia sit amet nec eros. Phasellus massa magna, varius vitae pellentesque et, maximus eu nisl.</p>
-                    </div>
-                </div>
                 <Tools />
                 <Channels />
                 <Uploads />
