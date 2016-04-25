@@ -10,7 +10,7 @@ export default (store) => ({
       /*  These modules are lazily evaluated using require hook, and
           will not loaded until the router invokes this callback. */
       const videos = require('./containers/VideosContainer').default
-      const reducer = require('./modules/videos').default
+      const reducer = require('./modules/videos').reducers
 
       injectReducer(store, { key: 'videos', reducer })
 

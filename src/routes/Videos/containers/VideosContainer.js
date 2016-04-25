@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { actions, reducers } from '../modules/videos'
+import { actions as videoActions, reducers } from '../modules/videos'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -9,7 +9,10 @@ import { actions, reducers } from '../modules/videos'
 import {MainView} from 'components/YouTube'
 
 const mapStateToProps = (state) => ({
-  videos: state.videos
+  videos: state.videos,
+  viewState: state.viewState
 })
 
-export default connect(mapStateToProps, actions)(MainView)
+//const actions = Object.assign({}, videoActions, viewStateReducer);
+
+export default connect(mapStateToProps, videoActions)(MainView)
