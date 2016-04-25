@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 
 require('font-awesome/css/font-awesome.css')
 require('bootstrap/dist/css/bootstrap.css')
+require('lato-font/css/lato-font.css')
 
 const MOUNT_ELEMENT = document.getElementById('root')
 
