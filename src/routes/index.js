@@ -19,6 +19,7 @@ export const createRoutes = (store) => {
         next(null, [
           // Provide store for async reducers and middleware
           require('./Videos').default(store),
+          require('./Counter').default(store),
           require('./NotFound').default
         ])
       })
