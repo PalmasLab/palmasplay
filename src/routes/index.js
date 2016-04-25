@@ -1,4 +1,7 @@
 // We only need to import the modules necessary for initial render
+import { connect } from 'react-redux'
+import { actions } from '../store/viewStateReducer'
+
 import CoreLayout from '../layouts/CoreLayout/CoreLayout'
 import Videos from './Videos'
 
@@ -9,7 +12,7 @@ export const createRoutes = (store) => {
 
   const routes = {
     path: '/',
-    component: CoreLayout,
+    component: connect(state => state, actions)(CoreLayout),
     indexRoute: Videos(store),
     getChildRoutes (location, next) {
       require.ensure([], (require) => {

@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux'
 import { routerReducer as router } from 'react-router-redux'
+import viewState from './viewStateReducer'
 
 export const reducers = (asyncReducers) => {
     return combineReducers({
-        // Add sync reducers here
-        router,
-        ...asyncReducers })
+      // Add sync reducers here
+      viewState,
+      router,
+      ...asyncReducers })
 }
 
 export const injectReducer = (store, { key, reducer }) => {

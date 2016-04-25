@@ -8,20 +8,24 @@ import '../../styles/core.scss'
 
 export class CoreLayout extends ResizeableComponent {
     onSetSidebarOpen(open) {
-        this.setState({sidebarOpen: open});
-    }
-
-    toggleSidebar() {
-        this.setState({sidebarOpen: !!!this.state.sidebarOpen})
+        let {toggle_sidebar, viewState} = this.props;
+        viewState.sidebarOpen || toggle_sidebar();
     }
 
     render() {
         let sidebarContent = <SideMenu />;
-        let {children} = this.props;
-        let {sidebarOpen, sidebarDocked, small} = this.state;
+        let {children, viewState, toggle_cover, toggle_sidebar} = this.props;
+        let {sidebarOpen} = viewState;
+        let {small} = this.state;
+
+        let toggleActions = {
+            toggleSidebar: toggle_sidebar,
+            toggleCover: toggle_cover
+        }
+
         return (
             <div>
-                <Header toggleSidebar={this.toggleSidebar.bind(this)}/>
+                <Header {...toggleActions} />
                 <Sidebar sidebar={sidebarContent}
                          open={sidebarOpen || !small}
                          docked={sidebarOpen || !small}
@@ -29,7 +33,7 @@ export class CoreLayout extends ResizeableComponent {
 
                     <div className={classes.mainContainer}>
                         {children}
-                    </div>         
+                    </div>
                 </Sidebar>
             </div>
         )
