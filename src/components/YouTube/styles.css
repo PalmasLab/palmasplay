@@ -47,7 +47,10 @@ input[type=button]:active
 }
 
 .mainView .rightPane {
+    display: flex;
+    flex-direction: column;
     flex: 0;
+    min-width: 270px;
 }
 
 .sideMenu
@@ -171,46 +174,47 @@ a
 }
 .tools
 {
-	height: 65px;
-	width: 100%;
-	background: #fff;
-	border-bottom: 1px solid #EBECEB;
-	position: relative;
+    display: flex;
+    height: 65px;
+    background: #fff;
+    border-bottom: 1px solid #EBECEB;
+    position: relative;
 }
 .tools li
 {
-	display: inline-block;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	font-size: 11px;
-	font-family: Arial;
-	font-weight: bold;
-	padding-bottom: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-right: 10px;
-	transition: .1s ease all;
+    display: inline-block;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-family: Arial;
+    font-weight: bold;
+    padding: 0px 10px;
+    margin-right: 10px;
+    transition: .1s ease all;
 }
-.tools ul.active
+.tools li.active
 {
 	border-bottom: 2px solid #42B653;
 	color: rgba(0,0,0,0.7);
 }
 .tools ul
 {
-	margin-left: 35px;
-	line-height: 4;
+    width: 100%;
+    margin-left: 35px;
+    line-height: 4;
 }
+
+.tools ul:last-of-kind {
+    flex: 0;
+}
+
 .subs
 {
     display: flex;
-    width: 270px;
-    height: 100%;
+    height: 66px;
     background: #fff;
     border-left: 1px solid #EBECEB;
-    position: absolute;
-    top: 0;
-    right: 0;
+    border-bottom: 1px solid #EBECEB;
 }
 .subs input[type=button]
 {
@@ -234,11 +238,9 @@ a
 }
 .channel
 {
-	height: 320px;
-	width: 270px;
+    width: 100%;
 	border-left: 1px solid #EBECEB;
 	background: #F7F8FA;
-	float: right;
 	position: relative;
 }
 .channel li
@@ -290,14 +292,10 @@ a
 }
 .uploads
 {
-	height: 700px;
-	width: 270px;
 	border-left: 1px solid #EBECEB;
 	background: #F7F8FA;
-	top: 320px;
 	position: relative;
 	border-top: 1px solid #EBECEB;
-	float: right;
 	margin-right: -271px;
 }
 .facebook
@@ -386,9 +384,9 @@ a
 	color: #42B653;
 }
 .bigVideo {
-	padding: 1px 25px;
-	background: white;
-	border-bottom: 1px solid #EBECEB;
+    padding: 1px 25px;
+    background: white;
+    border-bottom: 1px solid #EBECEB;
 }
 
 .vel

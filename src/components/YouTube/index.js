@@ -39,28 +39,29 @@ export class SideMenu extends React.Component {
     }
 }
 
+const Subscribe = () => (
+    <div className={styles.subs}>
+        <span className={styles.sub}>839 418 <p>Subscribers</p></span>
+        <input type="button" value="Subscribe"/>
+    </div>
+)
+
 class Tools extends React.Component {
     render() {
         return (
             <div className={styles.tools}>
                 <ul>
                     {['Home', 'Videos', 'Playlists', 'Discussions', 'About'].map((s, i) => (
-                         <a href="#" key={i}><li className="active">{s}</li></a>
+                         <a href="#" key={i}><li className={styles.active}>{s}</li></a>
                      ))}
-
-                         <a href="#"><li className={styles.facebook}><i className="fa fa-facebook-official fa-2x"></i></li></a>
-                         <a href="#"><li className={styles.instagram}><i className="fa fa-instagram fa-2x"></i></li></a>
-                         <a href="#"><li className={styles.googleplus}><i className="fa fa-google-plus-square fa-2x"></i></li></a>
-                         <a href="#"><li className={styles.twitter}><i className="fa fa-twitter-square fa-2x"></i></li></a>
                 </ul>
-                <div className={styles.subs}>
-                    <span className={styles.sub}>839 418 <p>Subscribers</p></span>
-                    <input type="button" value="Subscribe"/>
-                </div>
-            </div>
-        )
-    }
-}
+                <ul>
+                    <a href="#"><li className={styles.facebook}><i className="fa fa-facebook-official fa-2x"></i></li></a>
+                    <a href="#"><li className={styles.instagram}><i className="fa fa-instagram fa-2x"></i></li></a>
+                    <a href="#"><li className={styles.googleplus}><i className="fa fa-google-plus-square fa-2x"></i></li></a>
+                    <a href="#"><li className={styles.twitter}><i className="fa fa-twitter-square fa-2x"></i></li></a>
+                </ul>
+            </div>)}}
 
 class Channels extends React.Component {
     render() {
@@ -179,11 +180,12 @@ export class MainView extends React.Component {
                 </div>
                 <div className={styles.panels}>
                     <div className={styles.leftPane}>
+                        <Tools />
                         <BigVideo />
                         <Playlist />
                     </div>
                     <div className={styles.rightPane}>
-                        <Tools />
+                        <Subscribe />
                         <Channels />
                         <Uploads />
                     </div>
