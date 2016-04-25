@@ -4,10 +4,9 @@ import styles from './Header.scss'
 import LogoImg from './img/logo.png'
 import SmallLogo from './img/logo-small.png'
 
-
 export default class Header extends ResizeableComponent {
     render() {
-        let {toggleSidebar} = this.props
+        let {toggleSidebar, toggleCover} = this.props
         let {small} = this.state
         let headerSize = small?'small':null
 
@@ -26,9 +25,13 @@ export default class Header extends ResizeableComponent {
                         <ul>
                             <li><i className="fa fa-envelope-o messages"></i></li>
                             <li><i className="fa fa-bell-o notifications"></i></li>
-                            <li><i className="fa fa-caret-down down"></i></li>
+                            <li><a href="#" onClick={toggleCover} >
+                                <i className="fa fa-caret-down down"></i>
+                            </a></li>
                         </ul>
-                        <img src="http://i.imgur.com/GjLlmP6.jpg" />
+                        <a href="#" onClick={toggleCover}>
+                            <img src="http://i.imgur.com/GjLlmP6.jpg" />
+                        </a>
                     </div>
                 </div>
             </div>

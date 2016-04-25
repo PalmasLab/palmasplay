@@ -170,13 +170,24 @@ export class MainView extends React.Component {
     }
 
     render() {
+        let {viewState} = this.props
+
         return (
-            <div className={styles.sve}>
-                <Tools />
-                <Channels />
-                <Uploads />
-                <BigVideo />
-                <Playlist />
+            <div className={styles.mainView}>
+                <div className={viewState.coverOpen?'':styles.hidden}>
+                    <Cover />
+                </div>
+                <div className={styles.panels}>
+                    <div className={styles.leftPane}>
+                        <BigVideo />
+                        <Playlist />
+                    </div>
+                    <div className={styles.rightPane}>
+                        <Tools />
+                        <Channels />
+                        <Uploads />
+                    </div>
+                </div>
             </div>
         )
     }
