@@ -54,8 +54,8 @@ class Tools extends React.Component {
                          <a href="#"><li className={styles.twitter}><i className="fa fa-twitter-square fa-2x"></i></li></a>
                 </ul>
                 <div className={styles.subs}>
-                    <input type="button" value="Subscribe"/>
                     <span className={styles.sub}>839 418 <p>Subscribers</p></span>
+                    <input type="button" value="Subscribe"/>
                 </div>
             </div>
         )
