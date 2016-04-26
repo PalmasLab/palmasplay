@@ -2,3 +2,64 @@
     overflow: hidden;
   padding-top:60px;
 }
+
+.mainView
+{
+    height: 220%;
+    width: 100%;
+    position: relative;
+    border-left: 1px solid #EBECEB;
+}
+
+.cover
+{
+    height: 400px;
+    max-height: 400px;
+    width: 100%;
+    background: url("http://i.imgur.com/jp5slG3.jpg");
+    background-size: 100%;
+    background-position: 0px -180px;
+    transform: translate3d(0px, 0px, 0px);
+    transition: all 1s;
+}
+.hidden .cover {
+    max-height: 0px;
+    //    transform: translate3d(0px, -100%, 0px);
+    overflow: hidden;
+}
+
+.info
+{
+    position: absolute;
+    right: 0;
+    background: rgba(0,0,0,0.3);
+    height: 100%;
+    width: 271px;
+
+    text-align: center;
+}
+.info img
+{
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    margin: 10px auto;
+    margin-top: 100px;
+}
+
+.nick
+{
+    font-family: Lato;
+    font-weight: 100;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+}
+.info p
+{
+    font-family: Lato;
+    color: white;
+    font-weight: 300;
+    margin: 10px auto;
+}

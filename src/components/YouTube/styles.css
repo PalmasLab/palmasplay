@@ -34,23 +34,43 @@ input[type=button]:active
 	background: #298266;
 }
 
-.mainView
-{
-    height: 220%;
-    width: 100%;
-    position: relative;
-    border-left: 1px solid #EBECEB;
-}
-
-.mainView .panels {
+.panels {
     display: flex;
 }
 
-.mainView .rightPane {
+.leftPane {
+    width: 100%;
+    margin: auto;
+}
+
+.rightPane {
     display: flex;
     flex-direction: column;
     flex: 0;
     min-width: 270px;
+}
+
+.loaderContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%!important;
+    background: rgba(0,0,0, 0.7 );
+    margin: auto;
+    height: 0;
+    float: left;
+    z-index: 99;
+}
+
+.blur {
+    filter: blur(20px);
+}
+
+.loaderContainer figure {
+    position: relative;
+    margin: auto;
+    top: 300px;
 }
 
 .sideMenu
@@ -124,54 +144,7 @@ a
 {
 	margin-right: 20px;
 }
-.cover
-{
-    height: 400px;
-    max-height: 400px;
-    width: 100%;
-    background: url("http://i.imgur.com/jp5slG3.jpg");
-    background-size: 100%;
-    background-position: 0px -180px;
-    transform: translate3d(0px, 0px, 0px);
-    transition: all 1s;
-}
-.hidden .cover {
-    max-height: 0px;
-//    transform: translate3d(0px, -100%, 0px);
-}
 
-.info
-{
-	background: rgba(0,0,0,0.3);
-	height: 100%;
-	width: 271px;
-	float: right;
-	text-align: center;
-}
-.info img
-{
-	height: 100px;
-	width: 100px;
-	border-radius: 100%;
-	margin: 10px auto;
-	margin-top: 100px;
-}
-.nick
-{
-	font-family: Lato;
-	font-weight: 100;
-	color: white;
-	font-size: 30px;
-	text-align: center;
-	width: 100%;
-}
-.info p
-{
-	font-family: Lato;
-	color: white;
-	font-weight: 300;
-	margin: 10px auto;
-}
 .tools
 {
     display: flex;

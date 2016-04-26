@@ -1,7 +1,8 @@
 import React from 'react'
-import Sidebar from 'react-sidebar'
+
 import ResizeableComponent from 'components/ResizeableComponent'
 import Header from 'components/Header'
+import Loader from 'components/Loader'
 
 import styles from './styles.css'
 
@@ -164,14 +165,20 @@ const Cover = () => (
     </div>
 )
 
-export class MainView extends React.Component {
+const LoaderContainer = () => (
+    <div className={styles.loaderContainer}>
+        <Loader/>
+    </div>
+)
+
+export default class MainView extends React.Component {
     componentDidMount() {
         console.log ('this', this.props, this.state)
         this.props.fetchVideos()
     }
 
     render() {
-        let {viewState} = this.props
+        let {viewState, videos} = this.props
 
         return (
             <div className={styles.mainView}>
