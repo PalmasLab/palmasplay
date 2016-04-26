@@ -21,6 +21,7 @@ export default class Header extends ResizeableComponent {
                 <div className={styles.flex}>
                     <input type="search" placeholder="Search"/>
                     <input type="button" value="Upload" />
+
                     <div className={styles.menu}>
                         <ul>
                             <li><i className="fa fa-envelope-o messages"></i></li>
