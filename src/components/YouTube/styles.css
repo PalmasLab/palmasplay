@@ -148,6 +148,7 @@ a
 .tools
 {
     display: flex;
+    flex-wrap:wrap;
     height: 65px;
     background: #fff;
     border-bottom: 1px solid #EBECEB;
@@ -181,30 +182,34 @@ a
     flex: 0;
 }
 
-.subs
-{
-    display: flex;
+.subs {
+    margin: 0px auto;
+    padding: 17px 0px;
     height: 66px;
     background: #fff;
     border-left: 1px solid #EBECEB;
     border-bottom: 1px solid #EBECEB;
+
 }
-.subs input[type=button]
+
+.subs
 {
+    display: flex;
+}
+
+.subs input[type=button] {
     flex: 0;
 //	margin: 17px;
 }
-.sub
-{
+
+.sub {
     flex: 2;
     color: #A09F9D;
     font-size: 15px;
     text-align: center;
-    margin: 17px auto;
-    margin-left: 30px;
     font-weight: 600;
 }
-.sub p
+.sub span
 {
 	font-size: 10px;
 	text-transform: uppercase;
@@ -218,18 +223,25 @@ a
 }
 .channel li
 {
-	list-style: none;
-	margin-top: 20px;
+    display: flex;
+    list-style: none;
+    margin-top: 20px;
 }
+
+.channel .channelInfo {
+    display: flex;
+    flex-direction: column;
+}
+
 .channel p
 {
-	vertical-align:10px;
-	display: inline;
-	margin-left: 15px;
-	color: #A09F9D;
-	font-size: 13px;
-	font-family: Arial;
-	font-weight: bold;
+    margin: 0px;
+    margin-left: 20px;
+    display: inline;
+    color: #A09F9D;
+    font-size: 13px;
+    font-family: Arial;
+    font-weight: bold;
 }
 .channel ul
 {
@@ -237,23 +249,26 @@ a
 }
 .channel img
 {
-	height: 30px;
-	width: 30px;
-	border-radius: 100%;
+    position: relative;
+    flex: 0;
+
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
 }
 .channel i
 {
-	padding: 5px;
-	height: 10px;
-	width: 10px;
-	color: white;
-	border-radius: 2px;
-	font-size: 10px;
-	margin-left: 30px;
-	margin-top: 3px;
-	position: absolute;
-	cursor: pointer;
-	right: 50px;
+    flex: 0;
+    padding: 2px;
+    width: 12px;
+    height: 12px;
+    color: white;
+    margin-top: 10px;
+    border-radius: 2px;
+    font-size: 10px;
+    position: absolute;
+    cursor: pointer;
+    right: 30px;
 }
 .knob
 {
