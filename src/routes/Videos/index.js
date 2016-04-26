@@ -12,7 +12,7 @@ export default (store) => ({
       const videos = require('./containers/VideosContainer').default
       const reducer = require('./modules/videos').reducers
 
-      injectReducer(store, { key: 'videos', reducer })
+      injectReducer(store, { key: 'api', reducer })
 
       next(null, videos)
     })

@@ -178,13 +178,14 @@ export default class MainView extends React.Component {
     }
 
     render() {
-        let {viewState, videos} = this.props
+        let {viewState, api} = this.props
+
 
         return (
             <div className={styles.panels}>
                 <div className={styles.leftPane}>
-                    {videos.isFetching?<LoaderContainer />: null}
-                    <div className={videos.isFetching?styles.blur:null}>
+                    {api.video.isFetching?<LoaderContainer />: null}
+                    <div className={api.video.isFetching?styles.blur:null}>
                         <Tools />
                         <BigVideo />
                         <Playlist />

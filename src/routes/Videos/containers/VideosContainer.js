@@ -9,7 +9,7 @@ import { actions as videoActions, reducers } from '../modules/videos'
 import MainView from 'components/YouTube'
 
 const mapStateToProps = (state) => ({
-  videos: state.videos,
+  api: state.api,
   viewState: state.viewState
 })
 
