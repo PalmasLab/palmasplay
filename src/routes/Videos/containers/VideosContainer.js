@@ -6,7 +6,7 @@ import { actions as videoActions, reducers } from '../modules/videos'
     wiring in the actions and state necessary to render a presentational
     component - in this case, the counter:   */
 
-import {MainView} from 'components/YouTube'
+import MainView from 'components/YouTube'
 
 const mapStateToProps = (state) => ({
   videos: state.videos,

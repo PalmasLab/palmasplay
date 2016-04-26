@@ -183,19 +183,19 @@ export default class MainView extends React.Component {
         return (
             <div className={styles.panels}>
                 <div className={styles.leftPane}>
-                    {!videos.isFetching?<LoaderContainer />: null}
-                    <div className={!videos.isFetching?styles.blur:null}>
+                    {videos.isFetching?<LoaderContainer />: null}
+                    <div className={videos.isFetching?styles.blur:null}>
                         <Tools />
                         <BigVideo />
                         <Playlist />
                     </div>
                 </div>
-            <div className={styles.rightPane}>
-                <Subscribe />
-                <Channels />
-                <Uploads />
+                <div className={styles.rightPane}>
+                    <Subscribe />
+                    <Channels />
+                    <Uploads />
+                </div>
             </div>
-    </div>
         )
     }
 }
