@@ -34,6 +34,6 @@ let combineResources = (resources) => {
     return ret
 }
 
-let resources = createAPIResources(['video', 'playlist', 'recomended'])
+let resources = createAPIResources(['video', 'playlist', 'recomend'])
 
 export const {types, actions, reducers} = combineResources(resources)

@@ -172,28 +172,69 @@ const LoaderContainer = () => (
 )
 
 export default class MainView extends React.Component {
+    fetchFromAPI = (fetchAction, key) => {
+        fetchAction()
+        .then(r => {
+            let state = this.state || {};
+            let newState = {
+                errors: (state.errors || {}),
+            }
+
+            switch (r.status) {
+                case 'rejected':
+                    newState.errors[key] = r
+                    newState.fetchError = (state.fetchError || []).concat(r)
+                    break;
+                default:
+                    newState.errors[key] = false
+                    break;
+            }
+
+            this.setState(newState)
+        })
+    }
+
+    state = {
+        fetchError: false,
+        errors: {}
+    }
+
     componentDidMount() {
         console.log ('this', this.props, this.state)
-        this.props.fetchVideos()
+
+        this.fetchFromAPI(this.props.fetchVideos, 'videos')
+        this.fetchFromAPI(this.props.fetchPlaylists, 'playlists')
+        this.fetchFromAPI(this.props.fetchRecomends, 'recomends')
     }
 
     render() {
         let {viewState, api} = this.props
+        let {fetchError, errors} = this.state || {}
 
+        let isFetching = ['video', 'playlist', 'recomend']
+                            .map(t => (api[t].isFetching))
+                            .reduce((l, c) => (l && c), true)
 
         return (
             <div className={styles.panels}>
+                {fetchError && <ul className={styles.errors}>
+                {fetchError.map((e, i) => (
+                     <li key={i}>ERROR, could not fetch resource of type:
+                         <span>{e.type}</span>
+                     </li>
+                 ))}
+                </ul>}
                 <div className={styles.leftPane}>
-                    {api.video.isFetching?<LoaderContainer />: null}
-                    <div className={api.video.isFetching?styles.blur:null}>
+                    {isFetching?<LoaderContainer />: null}
+                    <div className={isFetching?styles.blur:null}>
                         <Tools />
-                        <BigVideo />
-                        <Playlist />
+                        <BigVideo error={errors.videos}/>
+                        <Playlist error={errors.playlists}/>
                     </div>
                 </div>
                 <div className={styles.rightPane}>
                     <Subscribe />
-                    <Channels />
+                    <Channels error={errors.recomends}/>
                     <Uploads />
                 </div>
             </div>
