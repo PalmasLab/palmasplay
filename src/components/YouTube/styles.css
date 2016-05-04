@@ -53,7 +53,7 @@ input[type=button]:active
 
 .leftPane {
     width: 100%;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .rightPane {
@@ -84,78 +84,6 @@ input[type=button]:active
     position: relative;
     margin: auto;
     top: 300px;
-}
-
-.sideMenu
-{
-    width: 100%;
-    height: 100%;
-    background: #F7F8FA;
-    //	position: fixed;
-    float: left;
-    z-index: 99;
-    left: 0;
-}
-.sideMenu li
-{
-    width: 217px;
-    display: flex;
-    color: #A09F9D;
-    list-style: none;
-    font-family: Lato;
-    font-weight: bold;
-    padding: 10px 20px;
-
-    transition: .1s all ease;
-}
-
-.sideMenu ul
-{
-    margin: 10px auto;
-}
-
-.sideMenu ul:first-child
-{
-    margin: 70px auto 0px;
-}
-
-.title i
-{
-    position: absolute;
-    margin: 2px auto 0;
-    right: -5px;
-    color:  #A09F9D;
-}
-a
-{
-    text-decoration: none;
-    color: #A09F9D;
-}
-.title
-{
-    font-size: 14px;
-    color: #42B653;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-family: Arial;
-}
-.title:hover
-{
-	background: transparent;
-}
-.sideMenu li:hover
-{
-
-	background: #42B653;
-	color: #fff;
-}
-.sideMenu li:hover i
-{
-	color: #fff;
-}
-.sideMenu i
-{
-	margin-right: 20px;
 }
 
 .tools

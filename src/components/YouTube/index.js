@@ -8,36 +8,6 @@ import {BigVideo, VideoItem} from 'components/VideoItem'
 
 import styles from './styles.css'
 
-const MenuSection = ({title, icon, children}) => (
-    <ul>
-        <li className={styles.title}><strong>{title}</strong><i className={`fa fa-${icon}`}></i></li>
-        {children}
-    </ul>
-)
-
-export const SideMenu = () => (
-    <div className={styles.sideMenu}>
-        <MenuSection title="Menu">
-            <a href="#"><li><i className="fa fa-youtube-play"></i>What to watch</li></a>
-            <a href="#"><li><i className="fa fa-user"></i>My Channel</li></a>
-            <a href="#"><li><i className="fa fa-clock-o"></i>History</li></a>
-            <a href="#"><li><i className="fa fa-play-circle-o"></i>Watch later</li></a>
-        </MenuSection>
-        <MenuSection title="Playlists" icon="cog">
-            <a href="#"><li><i className="fa fa-heart-o"></i>Liked Videos</li></a>
-            <a href="#"><li><i className="fa fa-indent"></i>My Music</li></a>
-            <a href="#"><li><i className="fa fa-indent"></i>Eminem</li></a>
-            <a href="#"><li><i className="fa fa-indent"></i>David Guetta</li></a>
-        </MenuSection>
-        <MenuSection title="Playlists2" icon="heart">
-            <a href="#"><li><i className="fa fa-heart-o"></i>Liked Videos</li></a>
-            <a href="#"><li><i className="fa fa-indent"></i>My Music</li></a>
-            <a href="#"><li><i className="fa fa-indent"></i>Eminem</li></a>
-            <a href="#"><li><i className="fa fa-indent"></i>David Guetta</li></a>
-        </MenuSection>
-    </div>
-)
-
 const Subscribe = () => (
     <div className={styles.subs}>
         <div className={styles.sub}>839 418 <span>Subscribers</span></div>
@@ -98,7 +68,7 @@ let defaultChannels = [
     name: "thenewboston", subscribed: false}
 ]
 
-const Channels = ({channels = defaultChannels}) => (
+const FeaturedChannels = ({channels = defaultChannels}) => (
     <div className={styles.channel}>
         <ul>
             <li className={styles.title}><strong>Featured Channels</strong></li>
@@ -110,16 +80,32 @@ const Channels = ({channels = defaultChannels}) => (
     </div>
 )
 
-const Uploads = () => (
+
+import moment from 'moment'
+import {randomYTId} from './mock'
+
+let intRandom = (num) => Math.floor(Math.random()*num)
+Array.prototype.any = function () {
+    return this[intRandom(this.length)]
+}
+
+const VideoList = ({errors, items}) => (
+    <div>
+        <BigVideo error={errors.videos} {...items[0]}/>
+        <Playlist error={errors.playlists} items={items.slice(1)}/>
+    </div>
+)
+
+const Uploads = ({items}) => (
     <div className={styles.uploads}>
         <h1 className={styles.title}>Popular uploads</h1>
-        {[1,2].map((v,i) => (
-             <VideoItem id={v} key={i} />
+        {items.map((v,i) => (
+             <VideoItem key={i} {...v}/>
          ))}
     </div>
 )
 
-const Playlist = ({name='Interviews'}) => (
+const Playlist = ({name='Interviews', items}) => (
     <div className={styles.playlist}>
         <div className={styles.trak}>
             <h1>{name}</h1>
@@ -127,8 +113,8 @@ const Playlist = ({name='Interviews'}) => (
         </div>
 
 	<ul>
-            {[4, 5, 6, 7, 8, 9, 10].map((v, i) =>(
-                 <VideoItem id={v} key={i} />
+            {items.map((v, i) =>(
+                 <VideoItem key={i} {...v}/>
              ))}
         </ul>
     </div>
@@ -139,6 +125,25 @@ const LoaderContainer = () => (
         <Loader/>
     </div>
 )
+
+let generateMockVideoItems = (count=10) => {
+    let ret = []
+    while (count--) {
+        let id = randomYTId.any()
+        ret.push({
+            id: id,
+            views: intRandom(50000),
+            runtime: intRandom(600),
+            cover: {
+                high:  `https://i.ytimg.com/vi/${id}/hqdefault.jpg`,
+                med:  `https://i.ytimg.com/vi/${id}/mqdefault.jpg`,
+            },
+            published: moment().subtract(intRandom(10), 'months').toDate(),
+            title:'Adam Lallana interview Liverpool FC'
+        })
+    }
+    return ret
+}
 
 export default class MainView extends React.Component {
     fetchFromAPI = (fetchAction, key) => {
@@ -197,14 +202,13 @@ export default class MainView extends React.Component {
                     {isFetching?<LoaderContainer />: null}
                     <div className={isFetching?styles.blur:null}>
                         <Tools />
-                        <BigVideo error={errors.videos}/>
-                        <Playlist error={errors.playlists}/>
+                        <VideoList errors={errors} items={generateMockVideoItems(31)}/>
                     </div>
                 </div>
                 <div className={styles.rightPane}>
                     <Subscribe />
-                    <Channels error={errors.recomends}/>
-                    <Uploads />
+                    <FeaturedChannels error={errors.recomends}/>
+                    <Uploads items={generateMockVideoItems(5)} />
                 </div>
             </div>
         )

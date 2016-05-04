@@ -16,16 +16,11 @@ let prettyNumber = (num) => (
        .replace(/(\d)(\d{3}),/, '$1, $2,') // 1P
 )
 
-export const BigVideo = ({
-    views=1531912, runtime=756,
-    published=moment().subtract(1, 'weeks').toDate(),
-    img='http://www.lostivalepensante.it/wp-content/uploads/ay102894607epa03566911-live.jpg',
-    title='Steven Gerrard - The best goals ever (1998-2015)'
-}) => (
+export const BigVideo = ({views, runtime, cover, published, title}) => (
     <div className={styles.bigVideo}>
         <a href="#">
             <div className={styles.videoContainer}
-                 style={{backgroundImage: `url("${img}")`}}>
+                 style={{backgroundImage: `url("${cover.high}")`}}>
                 <div className={styles.vrh}>
                     <span className={styles.views}>{prettyNumber(views)} views</span>
                     <span className={styles.runtime}>{formatRuntime(runtime)}</span>
@@ -43,16 +38,11 @@ export const BigVideo = ({
     </div>
 )
 
-export const VideoItem = ({
-    id, views=52316, runtime=5*60+13,
-    img='https://i.ytimg.com/vi/9bZkp7q19f0/mqdefault.jpg',
-    published=moment().subtract(3, 'months').toDate(),
-    title='Adam Lallana interview Liverpool FC'
-}) => (
+export const VideoItem = ({id, views, runtime, cover, published, title}) => (
     <li>
         <div className={styles.video}>
             <div className={styles.videoInfo}
-                 style={{backgroundImage: `url("${img}")`}}>
+                 style={{backgroundImage: `url("${cover.med}")`}}>
                 <span className={styles.views}>{prettyNumber(views)} views</span>
                 <span className={styles.runtime}>{formatRuntime(runtime)}</span>
             </div>
