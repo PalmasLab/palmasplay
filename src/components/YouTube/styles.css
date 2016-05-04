@@ -353,11 +353,11 @@ a
 }
 .videoInfo
 {
-	height: 120px;
-	width: 195px;
-	background: url("https://i.ytimg.com/vi/9bZkp7q19f0/mqdefault.jpg")no-repeat;
-	background-size: 120%;
-	border-radius: 7px;
+    height: 120px;
+    width: 195px;
+    background-size: 120%;
+    border-radius: 7px;
+    background-repeat: no-repeat;
 }
 
 .videoInfo span
@@ -393,7 +393,7 @@ a
 .vel
 {
 	height: 400px;
-	background: url("http://www.lostivalepensante.it/wp-content/uploads/ay102894607epa03566911-live.jpg")no-repeat;
+	background-repeat: no-repeat;
 	background-size: 100%;
 	margin: 25px;
 	margin-top: 40px;

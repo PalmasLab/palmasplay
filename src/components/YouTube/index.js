@@ -133,10 +133,13 @@ let formatPublished = (published) => (moment(published).fromNow())
 
 const BigVideo = ({views=1531912, runtime=756,
                    published=moment().subtract(1, 'weeks').toDate(),
-                   title='Steven Gerrard - The best goals ever (1998-2015)'}) => (
+                   img='http://www.lostivalepensante.it/wp-content/uploads/ay102894607epa03566911-live.jpg',
+                   title='Steven Gerrard - The best goals ever (1998-2015)'})
+=> (
     <div className={styles.bigVideo}>
         <a href="#">
-            <div className={styles.vel}>
+            <div className={styles.vel}
+                 style={{backgroundImage: `url("${img}")`}}>
                 <div className={styles.vrh}>
                     <span className={styles.views}>{prettyNumber(views)} views</span>
                     <span className={styles.runtime}>{formatRuntime(runtime)}</span>
@@ -155,10 +158,13 @@ const BigVideo = ({views=1531912, runtime=756,
 )
 
 const VideoItem = ({id, views=52316, runtime=5*60+13,
+                    img='https://i.ytimg.com/vi/9bZkp7q19f0/mqdefault.jpg',
                     published=moment().subtract(3, 'months').toDate(),
-                    title='Adam Lallana interview Liverpool FC'}) => (
+                    title='Adam Lallana interview Liverpool FC'})
+=> (
     <li><div className={styles.video}>
-        <div className={styles.videoInfo}>
+        <div className={styles.videoInfo}
+             style={{backgroundImage: `url("${img}")`}}>
             <span className={styles.views}>{prettyNumber(views)} views</span>
             <span className={styles.runtime}>{formatRuntime(runtime)}</span>
         </div>
@@ -168,10 +174,10 @@ const VideoItem = ({id, views=52316, runtime=5*60+13,
     </li>
 )
 
-const Playlist = () => (
+const Playlist = ({name='Interviews'}) => (
     <div className={styles.playlist}>
         <div className={styles.trak}>
-            <h1>Interviews</h1>
+            <h1>{name}</h1>
             <input type="button" value="Play all" />
         </div>
 
