@@ -76,7 +76,7 @@ const ChannelItem = ({img, name, subs=2000, subscribed}) => (
             <p>{(subs < 1000)?subs:
                 (subs < 10**6)?subs/10**3 + 'k':
                 (subs < 10**9)?subs/10**6 + 'M':
-                (subs < 10**12)?subs/10**9 + 'G':
+                (subs < 10**12)?subs/10**9+ 'G':
                 'muita gente'
                } <span>{(subs < 10**9)?'subscribers':''}</span></p>
         </div>
@@ -220,7 +220,7 @@ export default class MainView extends React.Component {
     componentDidMount() {
         console.log ('this', this.props, this.state)
 
-        this.fetchFromAPI(this.props.fetchVideos, 'videos')
+        this.fetchFromAPI(this.props.fetchVideos,    'videos')
         this.fetchFromAPI(this.props.fetchPlaylists, 'playlists')
         this.fetchFromAPI(this.props.fetchRecomends, 'recomends')
     }
