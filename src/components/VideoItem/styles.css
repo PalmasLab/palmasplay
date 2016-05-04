@@ -1,0 +1,174 @@
+.video
+{
+    height: 195px;
+    width: 200px;
+    margin: 20px;
+}
+.video img
+{
+    height: 120px;
+    width: 195px;
+    border-radius: 10px;
+    position: relative;
+}
+.video h2
+{
+    font-size: 15px;
+    font-family: Lato;
+    margin-top: 10px;
+    transition: .1s ease all;
+    color: #293543;
+    font-weight: 450;
+    margin-bottom: 5px;
+}
+.published
+{
+    font-size: 11px;
+    color: #A09F9D;
+}
+.videoInfo
+{
+    height: 120px;
+    width: 195px;
+    background-size: 120%;
+    border-radius: 7px;
+    background-repeat: no-repeat;
+}
+
+.videoInfo span
+{
+    color: white;
+    background: rgba(0,0,0,0.7);
+    border-radius: 15px;
+    font-family: Lato;
+    font-weight: 500;
+    padding: 7px;
+    font-size: 11px;
+}
+
+.views
+{
+    margin-left: 3px;
+    line-height: 4;
+}
+.runtime
+{
+    margin-left: 28px;
+}
+.video h2:hover
+{
+    color: #42B653;
+}
+
+.bigVideo {
+    padding: 1px 25px;
+    background: white;
+    border-bottom: 1px solid #EBECEB;
+}
+
+.videoContainer
+{
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 25px;
+    margin-top: 40px;
+    border-radius: 4px;
+    position: relative;
+}
+.videoContainer .vrh
+{
+    height: 100px;
+    width: 100%;
+    color: white;
+    top: 20px;
+    left: 50px;
+    position: absolute;
+}
+.videoContainer.vrh span
+{
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    border-radius: 25px;
+}
+.videoContainer.vrh.views
+{
+    float: left;
+}
+.videoContainer.vrh.desno
+{
+    margin-left: 450px;
+}
+.videoContainer .dno
+{
+    height: 120px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    transition: .1s all ease;
+    border-radius: 0px 0px 4px 4px;
+    color: white;
+    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+}
+.videoContainer .dno h1
+{
+    width: 70%;
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 30px;
+    margin: 30px;
+}
+.videoContainer .dno p
+{
+    position: absolute;
+    right: 10;
+    bottom: 10;
+    font-family: Lato;
+    font-weight: 300;
+}
+.videoContainer:hover .dno
+{
+    display: none;
+}
+.videoContainer:hover .vrh
+{
+    display: none;
+}
+.videoContainer .overlay
+{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: rgba(66,182,83, 0.7);
+    display: none;
+    transition: .3s all ease;
+}
+.videoContainer .overlay i
+{
+    margin-top: 160px;
+    margin-left: 320px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 3px 5px #000000;
+    border-radius: 4px;
+}
+.videoContainer:hover .overlay
+{
+    display: block;
+}
+.videoContainer .overlay h1
+{
+    width: 97%;
+    font-family: Lato;
+    font-weight: 300;
+    margin-top: 20px;
+    font-size: 30px;
+    text-align: center;
+    color: white;
+}
